@@ -5,13 +5,15 @@
 /// </summary>
 public class Order
 {
-    public Order(string email, string destinationAddress, DateTime createdAt, List<Package> packages)
+    public Order(string email, string destinationAddress, List<Package> packages)
     {
         Id = Guid.NewGuid();
         Email = email;
         DestinationAddress = destinationAddress;
         CreatedAt = DateTime.UtcNow;
         Packages = packages;
+        
+        CalculateTotalCost();
     }
 
     public Order() { }
@@ -47,7 +49,17 @@ public class Order
     public OrderStatus Status { get; private set; } = OrderStatus.Created;
     
     /// <summary>
+    /// Общая стоимость заказа
+    /// </summary>
+    public decimal TotalCost { get; private set; }
+    
+    /// <summary>
     /// Метод для смены статуса
     /// </summary>
     public void UpdateStatus(OrderStatus newStatus) => Status = newStatus;
+
+    /// <summary>
+    /// Пересчитывает общую стоимость доставки всех посылок.
+    /// </summary>
+    private void CalculateTotalCost() => TotalCost = Packages.Select(p => p.DeliveryCost).Sum();
 }

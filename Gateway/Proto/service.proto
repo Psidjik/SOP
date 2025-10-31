@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gateway.Grpc.Services";
+
+package delivery.services;
+
+import "models.proto";
+
+// Сервис расчета стоимости доставки
+service DeliveryPricing {
+  // Рассчитать стоимость одной посылки
+  rpc CalculateDeliveryCost (CalculateDeliveryCostRequest) returns (CalculateDeliveryCostResponse);
+
+  // Рассчитать стоимость всего заказа (массив посылок)
+  rpc CalculateOrderCost (CalculateOrderCostRequest) returns (CalculateOrderCostResponse);
+}
+
+// Запрос для расчета стоимости одной посылки
+message CalculateDeliveryCostRequest {
+  delivery.models.PackageMessage package = 1;
+}
+
+// Ответ с рассчитанной стоимостью
+message CalculateDeliveryCostResponse {
+  double cost = 1;
+}
+
+// Запрос для расчета стоимости заказа (несколько посылок)
+message CalculateOrderCostRequest {
+  delivery.models.OrderMessage order = 1;
+}
+
+// Ответ с общей стоимостью заказа
+message CalculateOrderCostResponse {
+  double totalCost = 1;
+}

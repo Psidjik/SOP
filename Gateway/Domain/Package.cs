@@ -5,15 +5,16 @@
 /// </summary>
 public class Package
 {
-    public Package(long weight, long height, long width, long length, decimal deliveryCost, Guid orderId)
+    public Package(long weight, long height, long width, long length, Guid orderId)
     {
         Id = Guid.NewGuid();
         Weight = weight;
         Height = height;
         Width = width;
         Length = length;
-        DeliveryCost = deliveryCost;
         OrderId = orderId;
+        
+        CalculateDeliveryCost();
     }
 
     private Package(){}
@@ -52,4 +53,9 @@ public class Package
     /// Id заказа
     /// </summary>
     public Guid OrderId { get; set; }
+    
+    /// <summary>
+    /// Подсчет стоимости
+    /// </summary>
+    private void CalculateDeliveryCost() => DeliveryCost = Weight * 1m + (Height * Width * Length) * 0.01m;
 }

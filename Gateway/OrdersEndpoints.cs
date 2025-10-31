@@ -1,8 +1,5 @@
 ﻿using Gateway.Contracts;
 using Gateway.Contracts.DTOs;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 
 namespace Gateway;
 
@@ -12,7 +9,7 @@ public static class OrdersEndpoints
     {
         app.MapPost("/api/orders", async (CreateOrderDto dto, IOrdersApi service, HttpContext http) =>
         {
-            var ct = http.RequestAborted; // реальный CancellationToken из запроса
+            var ct = http.RequestAborted; 
             var created = await service.CreateOrderAsync(dto, ct);
 
             var location = $"{http.Request.Scheme}://{http.Request.Host}{http.Request.PathBase}/api/orders/{created.Id}";
@@ -26,7 +23,7 @@ public static class OrdersEndpoints
             var ct = http.RequestAborted;
             var order = await service.GetOrderByIdAsync(id, ct);
 
-            return order is not null ? Results.Ok(order) : Results.NotFound();
+            return Results.Ok(order);
         })
         .WithName("GetOrderById")
         .WithOpenApi();
@@ -44,7 +41,7 @@ public static class OrdersEndpoints
         {
             var ct = http.RequestAborted;
             await service.UpdateOrderStatusAsync(id, dto, ct);
-            return Results.NoContent();
+            return Results.Ok(dto);
         })
         .WithName("UpdateOrderStatus")
         .WithOpenApi();
@@ -53,7 +50,7 @@ public static class OrdersEndpoints
         {
             var ct = http.RequestAborted;
             await service.DeleteOrderAsync(id, ct);
-            return Results.NoContent();
+            return Results.Ok(id);
         })
         .WithName("DeleteOrder")
         .WithOpenApi();

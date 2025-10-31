@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gateway.Grpc.Models";
+
+package delivery.models;
+
+message PackageMessage {
+  int64 weight = 1;
+  int64 height = 2;
+  int64 width  = 3;
+  int64 length = 4;
+  string id = 5;
+}
+
+// Модель заказа
+message OrderMessage {
+  string email = 1;
+  string destinationAddress = 2;
+  repeated PackageMessage packages = 3; // список посылок
+  double totalCost = 4; // общая стоимость заказа (заполняется сервером)
+}

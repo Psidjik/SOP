@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\Gateway.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\Gateway.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\Gateway.csproj": {
+    "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\Gateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\Gateway.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\Gateway.csproj",
         "projectName": "Gateway",
-        "projectPath": "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\Gateway.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\Gateway.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -65,6 +60,10 @@
               "target": "Package",
               "version": "[9.0.3, )"
             },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -89,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Admin\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

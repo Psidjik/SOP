@@ -595,7 +595,7 @@
           "Microsoft.Extensions.Logging": "9.0.3"
         },
         "compile": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "related": ".xml"
           }
         },
@@ -664,7 +664,7 @@
           "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -854,6 +854,40 @@
         },
         "build": {
           "buildTransitive/Mono.TextTemplating.targets": {}
+        }
+      },
+      "Npgsql/9.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[9.0.1, 10.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[9.0.1, 10.0.0)",
+          "Npgsql": "9.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Swashbuckle.AspNetCore/6.6.2": {
@@ -3154,6 +3188,38 @@
         "readme.md"
       ]
     },
+    "Npgsql/9.0.2": {
+      "sha512": "hCbO8box7i/XXiTFqCJ3GoowyLqx3JXxyrbOJ6om7dr+eAknvBNhhUHeJVGAQo44sySZTfdVffp4BrtPeLZOAA==",
+      "type": "package",
+      "path": "npgsql/9.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "npgsql.9.0.2.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.3": {
+      "sha512": "1A6HpMPbzK+quxdtug1aDHI4BSRTgpi7OaDt8WQh7SFJd2sSQ0nNTZ7sYrwyxVf4AdKdN7XJL9tpiiJjRUaa4g==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.9.0.3.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -3717,23 +3783,24 @@
       "Microsoft.EntityFrameworkCore >= 9.0.3",
       "Microsoft.EntityFrameworkCore.Analyzers >= 9.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.3",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.3",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\1\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\Gateway.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\Gateway.csproj",
       "projectName": "Gateway",
-      "projectPath": "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\Gateway.csproj",
-      "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1\\Desktop\\Gateway\\Gateway\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\Gateway.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\4КУРС\\SOP\\Gateway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3751,11 +3818,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3784,6 +3846,10 @@
             "target": "Package",
             "version": "[9.0.3, )"
           },
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[9.0.3, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
@@ -3808,7 +3874,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Admin\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

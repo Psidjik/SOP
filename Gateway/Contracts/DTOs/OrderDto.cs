@@ -1,6 +1,6 @@
 ﻿using Gateway.Domain;
 
-namespace Gateway.DTOs;
+namespace Gateway.Contracts.DTOs;
 
 /// <summary>
 /// DTO для отображения заказа.

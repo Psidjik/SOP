@@ -1,4 +1,4 @@
-﻿namespace Gateway.DTOs;
+﻿namespace Gateway.Contracts.DTOs;
 
 /// <summary>
 /// DTO для создания новой посылки.
